@@ -44,8 +44,6 @@ def main(arg):
         print("Wrong join type")
         exit(1)
 
-    print("Good data")
-
 
 def inner_join(path1, path2, column):
     inner_csv = left_join(path1, path2, column)
@@ -59,6 +57,7 @@ def inner_join(path1, path2, column):
             rows_to_delete.append(index)
 
     inner_csv = inner_csv.drop(rows_to_delete)
+    inner_csv = inner_csv.reset_index(drop=True)
 
     return inner_csv
 
