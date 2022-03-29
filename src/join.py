@@ -9,12 +9,10 @@ def main(arg):
         exit(1)
 
     if arg[0][-4:] != '.csv' or not os.path.exists(arg[0]):
-        print(arg[0])
         print(f"CSV file {arg[0]} not exist")
         exit(1)
 
     if arg[1][-4:] != '.csv' or not os.path.exists(arg[1]):
-        print(arg[1])
         print(f"CSV file {arg[1]} not exist")
         exit(1)
 
@@ -27,17 +25,14 @@ def main(arg):
 
     if arg[3] == "inner":
         print("Inner function")
-    #     TODO Inner join function
         end_csv = inner_join(arg[0], arg[1], arg[2])
         print(end_csv)
     elif arg[3] == "left":
         print("Left join function")
-    #     TODO Left join function
         end_csv = left_join(arg[0], arg[1], arg[2])
         print(end_csv)
     elif arg[3] == "right":
         print("Right join function")
-    #     TODO right join function
         end_csv = left_join(arg[1], arg[0], arg[2])
         print(end_csv)
     else:
