@@ -16,6 +16,10 @@ def main(arg):
         print(f"CSV file {arg[1]} not exist")
         exit(1)
 
+    if os.stat(arg[0]).st_size == 0 or os.stat(arg[1]).st_size == 0:
+        print("File is empty")
+        exit(1)
+
     csv1 = pd.read_csv(arg[0]).columns.values
     csv2 = pd.read_csv(arg[1]).columns.values
 

@@ -59,6 +59,23 @@ class TestArgument(unittest.TestCase):
         argument = ['left_data.csv', 'right_data.csv', 'id', 'wrong_join']
         self.assertRaises(SystemExit, main, argument)
 
+    def test_first_empty_file(self):
+        f = open('left_data.csv', 'w+')
+        f.close()
+        f = open('right_data.csv', 'w+')
+        f.write("id,header2\n")
+        f.close()
+        argument = ['left_data.csv', 'right_data.csv', 'id', 'inner']
+        self.assertRaises(SystemExit, main, argument)
+
+    def test_second_empty_file(self):
+        f = open('left_data.csv', 'w+')
+        f.write("id,header2\n")
+        f.close()
+        f = open('right_data.csv', 'w+')
+        f.close()
+        argument = ['left_data.csv', 'right_data.csv', 'id', 'inner']
+        self.assertRaises(SystemExit, main, argument)
 
 if __name__ == '__main__':
     unittest.main()
